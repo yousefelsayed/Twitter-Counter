@@ -63,7 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     fileprivate func setupUINavigationController(window: UIWindow) {
         UIBarButtonItem.appearance().tintColor = UIColor(red: 0.11, green: 0.129, blue: 0.122, alpha: 1)
         
-        let vc = UIViewController()
+        let vc = CustomSplashViewController()
         vc.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         let mainNavigationController = UINavigationController(rootViewController: vc)
         mainNavigationController.pushViewController(TwitterCharactersCounterViewController(), animated: false)

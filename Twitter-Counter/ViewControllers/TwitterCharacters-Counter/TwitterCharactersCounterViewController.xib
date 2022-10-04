@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TwitterCharactersCounterViewController" customModule="Twitter_Counter" customModuleProvider="target">
             <connections>
                 <outlet property="remainingCharactersLabel" destination="eUp-vp-xpy" id="561-r0-f7Z"/>
+                <outlet property="twTextView" destination="1PW-Md-AOf" id="muT-RQ-KeF"/>
                 <outlet property="typedCharactersLabel" destination="4io-Rn-dPH" id="y0O-8h-S95"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -61,7 +62,7 @@
                                                         <constraint firstItem="OYN-pk-8KR" firstAttribute="centerX" secondItem="C2Y-hh-8dA" secondAttribute="centerX" id="rtz-KW-ibd"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4io-Rn-dPH" customClass="CounterLabel" customModule="TWTextEditor">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/280" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4io-Rn-dPH" customClass="CounterLabel" customModule="TWTextEditor">
                                                     <rect key="frame" x="0.0" y="35" width="181" height="73"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -114,7 +115,7 @@
                                                         <constraint firstItem="dNr-BO-WqE" firstAttribute="leading" secondItem="JvS-q1-ZT5" secondAttribute="leading" id="t4B-XQ-qqA"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-vp-xpy" customClass="CounterLabel" customModule="TWTextEditor">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="280" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-vp-xpy" customClass="CounterLabel" customModule="TWTextEditor">
                                                     <rect key="frame" x="0.0" y="35" width="181" height="73"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -156,21 +157,21 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgJ-yR-0GB" customClass="TWPrimaryButton" customModule="TWTextEditor">
                                     <rect key="frame" x="0.0" y="0.0" width="93" height="40"/>
+                                    <color key="backgroundColor" name="copyTextColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="93" id="uug-ND-uHi"/>
                                         <constraint firstAttribute="height" constant="40" id="woa-Jp-OdI"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Copy Text">
-                                        <backgroundConfiguration key="background" cornerRadius="12">
-                                            <color key="backgroundColor" name="copyTextColor"/>
-                                        </backgroundConfiguration>
-                                    </buttonConfiguration>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Copy Text"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="16"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="copyTextButtonAction:" destination="-1" eventType="touchUpInside" id="SIB-fg-WER"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVz-je-Ffm">
                                     <rect key="frame" x="93" y="0.0" width="196" height="40"/>
@@ -178,20 +179,21 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4K-oj-YdC" customClass="TWPrimaryButton" customModule="TWTextEditor">
                                     <rect key="frame" x="289" y="0.0" width="93" height="40"/>
+                                    <color key="backgroundColor" name="clearTextColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Mid-Rv-iXe"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Clear Text">
-                                        <backgroundConfiguration key="background" cornerRadius="12">
-                                            <color key="backgroundColor" name="clearTextColor"/>
-                                        </backgroundConfiguration>
-                                    </buttonConfiguration>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Clear Text"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="16"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="clearTextButtonAction:" destination="-1" eventType="touchUpInside" id="8Y8-gp-4zQ"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
@@ -200,15 +202,12 @@
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ws5-jg-cFq" customClass="TWPrimaryButton" customModule="TWTextEditor">
                             <rect key="frame" x="0.0" y="571" width="382" height="56"/>
+                            <color key="backgroundColor" name="AccentColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="56" id="6Zb-Ai-zl2"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Post tweet">
-                                <backgroundConfiguration key="background" cornerRadius="16">
-                                    <color key="backgroundColor" name="twitterLogoColor"/>
-                                </backgroundConfiguration>
-                            </buttonConfiguration>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Post tweet"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="16"/>
@@ -236,20 +235,20 @@
     </objects>
     <resources>
         <image name="Twitterlogo" width="60" height="60"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="clearTextColor">
-            <color red="0.86274509803921573" green="0.0039215686274509803" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.86299997568130493" green="0.0040000001899898052" blue="0.14499999582767487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="copyTextColor">
-            <color red="0.0" green="0.66274509803921566" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.66299998760223389" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="lineGray">
-            <color red="0.95999999999999996" green="0.95999999999999996" blue="0.95999999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="twitterLogoColor">
-            <color red="0.011764705882352941" green="0.66274509803921566" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.95999997854232788" green="0.95999997854232788" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="upperCardColor">
-            <color red="0.90196078431372551" green="0.96470588235294119" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.90200001001358032" green="0.9649999737739563" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
