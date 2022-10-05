@@ -12,12 +12,17 @@ class TwitterCharactersCounterViewController: UIViewController {
 
     @IBOutlet weak var twTextView: TWTextEditorView!
     @IBOutlet weak var typedCharactersLabel: CounterLabel!
+    @IBOutlet weak var clearTextButton: TWPrimaryButton!
+    @IBOutlet weak var copyTextButton: TWPrimaryButton!
+    @IBOutlet weak var postTweetButton: TWPrimaryButton!
     @IBOutlet weak var remainingCharactersLabel: CounterLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavBar()
         twTextView.viewDelegate = self
         hideKeyboardWhenTappedAround()
+        setupAccessabilityIdentifiers()
+        self.twTextView.textView.becomeFirstResponder()
     }
 
 
@@ -31,6 +36,17 @@ class TwitterCharactersCounterViewController: UIViewController {
                                                                         NSAttributedString.Key.font: UIFont.twFontMediumWithSize(size: 18)]
     }
 
+    func setupAccessabilityIdentifiers() {
+        self.twTextView.accessibilityIdentifier = "twTextView"
+        self.twTextView.textView.accessibilityIdentifier = "myTextView"
+        self.twTextView.textView.isAccessibilityElement = true
+        self.typedCharactersLabel.accessibilityIdentifier = "typedCharactersLabel"
+        self.remainingCharactersLabel.accessibilityIdentifier = "remainingCharactersLabel"
+        self.clearTextButton.accessibilityIdentifier = "clearTextButton"
+        self.copyTextButton.accessibilityIdentifier = "copyTextButton"
+        self.postTweetButton.accessibilityIdentifier = "postTweetButton"
+    }
+    
     @IBAction func copyTextButtonAction(_ sender: Any) {
         self.twTextView.copyCurrentText()
     }

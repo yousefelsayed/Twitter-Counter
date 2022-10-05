@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TwitterCharactersCounterViewController" customModule="Twitter_Counter" customModuleProvider="target">
             <connections>
+                <outlet property="clearTextButton" destination="G4K-oj-YdC" id="Hca-FX-FSV"/>
+                <outlet property="copyTextButton" destination="BgJ-yR-0GB" id="2l0-9y-luT"/>
+                <outlet property="postTweetButton" destination="Ws5-jg-cFq" id="QgJ-Au-0ew"/>
                 <outlet property="remainingCharactersLabel" destination="eUp-vp-xpy" id="561-r0-f7Z"/>
                 <outlet property="twTextView" destination="1PW-Md-AOf" id="muT-RQ-KeF"/>
                 <outlet property="typedCharactersLabel" destination="4io-Rn-dPH" id="y0O-8h-S95"/>
